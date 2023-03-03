@@ -1,0 +1,49 @@
+<!-- templates/_base.html -->
+<!DOCTYPE html>
+{% load compress %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pser</title>
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'src/input.css' %}">
+    <link rel="stylesheet" href="{% static 'vi.css' %}">
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+</head>
+
+<body >
+    
+
+    <div class="bg-black">
+        {% include 'layouts/navbar.html' %}
+        {% if messages %}
+        <div class="alert alert-success">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %} 
+    </div>
+{% endif %}
+
+        {% block content %}
+        
+        
+        {% endblock content %}
+        {% include 'layouts/footer.html' %}
+        
+    </div>
+    
+
+
+
+    
+    
+    
+</body>
+
+</html>

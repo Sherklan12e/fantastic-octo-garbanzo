@@ -1,0 +1,46 @@
+.cardt-container{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.cardq{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-out;
+}
+
+.cardq img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardr-caption{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.cardq:hover{
+    transform: translateY(-10px);
+}
+
+.cardq:hover .cardr-caption{
+    opacity: 1;
+}

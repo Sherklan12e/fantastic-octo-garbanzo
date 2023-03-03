@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+
+{% block content %}
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-3xl font-bold mb-4">Editar publicación</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="flex flex-col mb-4">
+        <label for="{{ form.titulo.id_for_label }}" class="font-semibold mb-2">{{ form.titulo.label }}</label>
+        {{ form.titulo }}
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="{{ form.autor.id_for_label }}" class="font-semibold mb-2">{{ form.autor.label }}</label>
+        {{ form.autor }}
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="{{ form.imagen.id_for_label }}" class="font-semibold mb-2">{{ form.imagen.label }}</label>
+        {{ form.imagen }}
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="{{ form.texto.id_for_label }}" class="font-semibold mb-2">{{ form.texto.label }}</label>
+        {{ form.texto }}
+      </div>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4">
+        Guardar cambios
+      </button>
+    </form>
+  </div>
+{% endblock %}

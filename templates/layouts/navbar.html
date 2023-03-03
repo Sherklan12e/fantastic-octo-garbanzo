@@ -1,0 +1,97 @@
+{% load static %}
+<nav class="bg-slate-600">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+
+      <div class="flex space-x-4">
+        <!-- logo -->
+        <div>
+          <a href="/" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+            <svg class="h-6 w-6 mr-1 text-blue-400 jon " xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <img style=" width: 70px; height: 70px; margin-right: 20px;" class="jon"
+                src="{% static 'images/pe.png' %}" alt="">
+            </svg>
+            <span class="font-bold">Forun</span>
+          </a>
+        </div>
+        <!-- primary nav -->
+
+
+
+
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="{% url 'publicacion_lista' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900">Publicaciones</a>
+          <a href="   {% url 'publicacion_nueva' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900">Publicar</a>
+          <a href="{% url 'imagenes' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900">imaganes</a>
+          <a href="{% url 'videos' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900">videos</a>
+          
+
+
+        </div>
+      </div>
+      <div class="hidden md:flex items-center space-x-1">
+        <a href="" class="py-5 px-3">Anzpls</a>
+
+      </div>
+
+   
+      
+    </div>
+
+      
+
+
+
+
+
+
+
+
+      <!-- secondary nav -->
+
+
+      <!-- mobile button goes here -->
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- mobile menu -->
+  <div class="mobile-menu hidden md:hidden">
+    <a href="" class="block py-2 px-4 text-sm hover:bg-gray-200">Galeria</a>
+    <form class="agua">
+      <div class="search-container">
+        <input type="search" id="search" name="search">
+        <button type="submit">Buscar</button>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<!-- content goes here -->
+
+<script>
+  // grab everything we need
+  const btn = document.querySelector("button.mobile-menu-button");
+  const menu = document.querySelector(".mobile-menu");
+
+  // add event listeners
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+
+</script>

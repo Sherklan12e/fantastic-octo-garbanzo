@@ -1,0 +1,142 @@
+
+{% extends '_base.html' %}{% load static %}  
+{% block content %}
+<p class="qwe">Videos</p>
+<div class="grids">
+    
+    <div class="carda">
+        <div class="cardw-thumbnail">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="cardw-description">
+            <h3>Video Title</h3>
+        </div>
+    </div>
+    <div class="carda">
+        <div class="cardw-thumbnail">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="cardw-description">
+            <h3>Video Title</h3>
+            
+        </div>
+    </div>
+    <div class="carda">
+        <div class="cardw-thumbnail">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="cardw-description">
+            <h3>Video Title</h3>
+            
+        </div>
+    </div>
+    <div class="carda">
+        <div class="cardw-thumbnail">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="cardw-description">
+            <h3>Video Title</h3>
+           
+        </div>
+    </div>
+    <div class="carda">
+        <div class="cardw-thumbnail">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="cardw-description">
+            <h3>Video Title</h3>
+            
+        </div>
+    </div>
+    <div class="carda">
+        <div class="cardw-thumbnail">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="cardw-description">
+            <h3>Video Title</h3>
+           
+        </div>
+    </div>
+    
+      
+
+
+    <!-- más cards -->
+
+</div>
+
+
+
+
+
+<script>
+    function changeQuality() {
+        var video = document.getElementById("myVideo");
+        var qualitySelector = document.getElementById("qualitySelector");
+        var selectedQuality = qualitySelector.options[qualitySelector.selectedIndex].value;
+        video.src = "video_" + selectedQuality + ".mp4";
+    }
+    const videos = document.querySelectorAll("video");
+    const playButton = document.querySelector('.play-button');
+    const pauseButton = document.querySelector('.pause-button');
+    const progressBar = document.querySelector('.progress');
+    const volumeButton = document.querySelector('.volume-button');
+    const fullscreenButton = document.querySelector('.fullscreen-button');
+    videos.forEach(video => {
+        video.addEventListener("click", () => {
+            // hacer algo al hacer clic en el video
+        });
+    });
+
+    const video = document.querySelector('video');
+
+
+    playButton.addEventListener('click', () => {
+        video.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+        video.pause();
+    });
+
+    video.addEventListener('timeupdate', () => {
+        const percent = (video.currentTime / video.duration) * 100;
+        progressBar.style.width = `${percent}%`;
+    });
+
+    volumeButton.addEventListener('click', () => {
+        if (video.volume === 0) {
+            video.volume = 1;
+            volumeButton.innerText = 'Mute';
+        } else {
+            video.volume = 0;
+            volumeButton.innerText = 'Volume';
+        }
+    });
+
+    fullscreenButton.addEventListener('click', () => {
+        video.requestFullscreen();
+    });
+
+</script>
+
+{% endblock  %}
+    
