@@ -1,0 +1,93 @@
+
+  <style>
+    .grid-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: #03afff;
+        border-radius: 4px;
+        transition: transform 0.3s ease-in-out;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .grid-item:hover {
+        filter: opacity(0.9);
+        transform: scale(1.04);
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-auto-rows: minmax(200px, auto);
+        gap: 20px;
+        padding: 20px;
+        grid-auto-flow: dense;
+    }
+
+    @media (min-width: 600px) {
+        .wide {
+            grid-column: span 2;
+        }
+
+        .tall {
+            grid-row: span 2;
+        }
+    }
+</style>
+
+
+
+
+  <div class="grid-container">
+    <div class="grid-item tall"
+        style="background-image: url('https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png')">
+    </div>
+    <div class="grid-item" style="
+        background-image: url('https://cdn.discordapp.com/attachments/989219928794099763/1061353191310106705/E7ftOAWWYAMdXj-.png');
+      "></div>
+
+    <div class="grid-item wide" style="
+        background-image: url('https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png');
+      ">
+    </div>
+    <div class="grid-item" style="
+        background-image: url('https://cdn.discordapp.com/attachments/989219928794099763/1061353191310106705/E7ftOAWWYAMdXj-.png');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/534/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/664/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/176/900/900.jpg');
+      "></div>
+    <div class="grid-item"
+        style="background-image: url('https://cdn.discordapp.com/attachments/989219928794099763/1061353191310106705/E7ftOAWWYAMdXj-.png')">
+    </div>
+    <div class="grid-item tall wide" style="
+        background-image: url('https://picsum.photos/id/806/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/535/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/943/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/733/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/584/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/844/900/900.jpg');
+      "></div>
+    <div class="grid-item" style="
+        background-image: url('https://picsum.photos/id/160/900/900.jpg');
+      "></div>
+</div>

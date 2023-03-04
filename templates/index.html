@@ -1,39 +1,377 @@
 {% extends '_base.html' %}{% load static %}
 {% block content %}
-  <p class="qwe">Imagenes</p>
-  <div class="cardt-container">
-    <div class="cardq">
-      <img src="https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png" alt="Imagen 1">
-      <div class="cardr-caption">Descripción de la imagen 1</div>
-    </div>
-    <div class="cardq">
-      <img src="https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png" alt="Imagen 1">
-      <div class="cardr-caption">Descripción de la imagen 1</div>
-    </div>
-    <div class="cardq">
-      <img src="https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png" alt="Imagen 1">
-      <div class="cardr-caption">Descripción de la imagen 1</div>
-    </div>
-    <div class="cardq">
-      <img src="https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png" alt="Imagen 1">
-      <div class="cardr-caption">Descripción de la imagen 1</div>
-    </div>
-    <div class="cardq">
-      <img src="https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png" alt="Imagen 1">
-      <div class="cardr-caption">Descripción de la imagen 1</div>
-    </div>
-    <div class="cardq">
-      <img src="https://cdn.discordapp.com/attachments/781513885458235462/783146943546261524/Neji.png" alt="Imagen 1">
-      <div class="cardr-caption">Descripción de la imagen 1</div>
-    </div>
+
+<style>
+  .cardt-container{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.cardq{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-out;
+    
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.cardq img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    transition: transform 0.3s ease;
+}
+
+.cardr-caption{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.cardq:hover{
+
+    transform: translateY(-10px);
+    
+    transform: scale(1.1);
+}
+
+.cardq:hover .cardr-caption{
+    opacity: 1;
+}
 
 
 
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    margin-bottom: 80px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-contenido {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 100%;
+    max-height: 2000px;
+}
+
+.cerrar {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+</style>
+
+
+
+
+
+
+<p class="qwe">Imagenes</p>
+<div class="cardt-container">
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1078513947541512212/IMG_20230221_225554.jpg" alt="Imagen 1"   onclick="mostrarImagen(this.src)" >
+    <div class="cardr-caption" >Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1077625391730143242/IMG_20230104_021551_215.png"
+      alt="Imagen 1"  onclick="mostrarImagen(this.src)" >
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1077435762687090688/iIo1AYx.png" alt="Imagen 1"  onclick="mostrarImagen(this.src)" >
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032419044546056273/1058409629610147880/IMG_20221229_184632.jpg" alt="Imagen 1"    onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1077435762162798653/20221025_105510.png" alt="Imagen 1"  onclick="mostrarImagen(this.src)" >
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1077435761302982747/20221210_013148.png" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032419044546056273/1074450263005478973/IMG_20230212_155056.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1077435760992587826/IMG_20220903_224014_082.png" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1076577673687605379/IMG_20230218_052728.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1076577673972822037/IMG_20230218_052924.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1076576331459989526/IMG_20230218_053355.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1076576330751152149/IMG_20230218_053830.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1076576330986029168/IMG_20230218_053735.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1075242195742900284/IMG_20230213_220052.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1075242151371350057/IMG_20230213_220340.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1075241894809972800/IMG_20230213_220415.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1075241854108434432/IMG_20230213_220425.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1075240735038767134/IMG_20230214_200801.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1067864628559892560/pEJ-9EMtMko.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1067255178434191360/20230123_180944.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1063980918798295131/IMG_20230114_182824_710.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1063646579342442526/IMG_20230113_174418_119.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1063646578918826056/IMG_20230113_174400_064.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1063646430021046312/IMG_20230113_174238_253.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1063493446452646020/IMG_20230111_221400_674.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1063493444816875540/IMG_20230112_130923_780.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1063130608135573634/IMG_20230112_101538_160.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1062140850315989142/IMG_20230109_232457_793.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1062140848764112937/IMG_20230109_232557_076.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1062012601959206952/IMG_20230109_060128.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1062012486737465406/IMG_20230109_064152.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032413347364212736/1062012478369833013/IMG_20230109_064402.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1078512927683907644/IMG_20230221_225323.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1076575733666820178/IMG_20230218_093803.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1076575560492396664/IMG_20230218_093806.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1076575559473180762/IMG_20230218_094143.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1075242409845346325/IMG_20230213_220058.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1075242054269014066/IMG_20230213_220410.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1075240970163064842/IMG_20230214_183212.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1075240941771825172/IMG_20230214_183315.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1075240878832107600/IMG_20230214_184457.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1074513926882078780/IMG_20230212_184216.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
   </div>
 
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1074449167021260820/IMG_20230212_155138.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div><div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1071218224743579829/kc34iz336rea1.png" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1067865258896662548/20220822_095305.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1066842160621686874/IMG_20230122_225008_147.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1066221358142476399/image.png" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1064978580406272030/IMG_20230117_122407_214.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1063981046162542623/IMG_20230114_183135_266.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032417685872595057/1063647374343409765/IMG_20230113_175954_899.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032419044546056273/1075240064398929990/IMG_20230214_201521.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032419044546056273/1075240050360590447/IMG_20230214_201712.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+  <div class="cardq">
+    <img src="https://cdn.discordapp.com/attachments/1032419044546056273/1074514243854024785/IMG_20230212_181922.jpg" alt="Imagen 1 " onclick="mostrarImagen(this.src)">
+    <div class="cardr-caption">Descripción de la imagen 1</div>
+  </div>
+
+
+
+</div>
+
+
+
+<div id="myModal" class="modal">
+  <span class="cerrar">&times;</span>
+  <img class="modal-contenido" id="imagen">
+</div>
+
+<script>
+
+  function mostrarImagen(ruta) {
+    var modal = document.getElementById("myModal");
+    var img = document.getElementById("imagen");
+    img.src = ruta;
+    modal.style.display = "block";
+
+    var cerrar = document.getElementsByClassName("cerrar")[0];
+    cerrar.onclick = function () {
+      modal.style.display = "none";
+    }
+  }
+
+</script>
 
 
 
 
 {% endblock %}
-  

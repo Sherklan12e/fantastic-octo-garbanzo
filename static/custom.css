@@ -1,0 +1,8 @@
+
+.otro{
+    height: 300px;
+}
+.perros{
+    display: flex;
+    flex-direction: column;
+}
